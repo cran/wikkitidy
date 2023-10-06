@@ -1,0 +1,49 @@
+test_that("`core_rest_request` returns a 200 for a basic request", {
+  response <- core_rest_request("page", "Charles_Harpur", "html") %>%
+    httr2::req_perform()
+  expect_equal(httr2::resp_status(response), 200)
+})
+
+test_that("`wikimedia_rest_request` returns a 200 for a basic request", {
+  response <- wikimedia_rest_request("page", "html", "Charles%20Harpur") %>%
+    httr2::req_perform()
+  expect_equal(httr2::resp_status(response), 200)
+})
+
+test_that("`wikimedia_org_rest_request` returns a 200 for a known request", {
+  response <- wikimedia_org_rest_request(
+    endpoint = "/metrics/pageviews/top/",
+    "all-access", 2022, "05", "01",
+    language = "en"
+  ) %>% httr2::req_perform()
+  expect_equal(httr2::resp_status(response), 200)
+})
+
+test_that("`xtools_rest_request` returns a 200 for a known request", {
+  response <- xtools_rest_request(
+    endpoint = c("user", "simple_editcount"),
+    "michaelgfalk",
+    language = "en"
+  ) %>% httr2::req_perform()
+  expect_equal(httr2::resp_status(response), 200)
+})
+
+test_that("Named arguments are handled correctly", {
+  lim <- 2
+  core_resp <- core_rest_request("search", "page", q="Goethe", limit=lim, language="de") %>%
+    httr2::req_perform()
+  expect_equal(httr2::resp_status(core_resp), 200)
+  expect_length(httr2::resp_body_json(core_resp)$pages, lim)
+
+  wiki_resp <- wikimedia_rest_request("page/html/Stalwart_The_Bushranger", redirect="false") %>%
+    httr2::req_perform()
+  wiki_302 <- wikimedia_rest_request("page/html/Stalwart_The_Bushranger") %>%
+    httr2::req_perform()
+  expect_equal(wiki_resp$url, "https://en.wikipedia.org/api/rest_v1/page/html/Stalwart_The_Bushranger?redirect=false")
+  expect_equal(wiki_302$url, "https://en.wikipedia.org/api/rest_v1/page/html/The_Tragedy_of_Donohoe")
+})
+
+test_that("appropriate error if no path components provided", {
+  expect_error(core_rest_request(), "no path components")
+})
+
