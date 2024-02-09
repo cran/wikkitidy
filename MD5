@@ -1,7 +1,7 @@
-566c90e45d0f776e99722988f7f7f423 *DESCRIPTION
+529830bf7c9a6aa938abe49b49d2a9ed *DESCRIPTION
 dba2b00f699af3c12c4e648ac55e1ea6 *LICENSE
 e6c5fea7d2a70af9852101b754e1cd83 *NAMESPACE
-c2201902948736717451fdf71afdd97f *NEWS.md
+72179092f81a5e01791f41f4b66ccac3 *NEWS.md
 42c48352eeb1d3a6d1bac0237056a07f *R/append-query-result.R
 e14580ec0f7941080f5e2fe5f1cf35e9 *R/blame.R
 4f32b8ee16a577328e425f861ecfeacd *R/datetime-for-url.R
@@ -14,7 +14,7 @@ e2c3d0e035f2ac1a360ed2dff27d4d9f *R/get-history-count.R
 3fd31ef2b71564936acb5e10dc36cc6d *R/get-rest-resource.R
 7d7d23d546d1180b14758675006fbf88 *R/list-query-type.R
 7b96053c96f4a6d96afb108f8cfcfd1c *R/parse-response.R
-0d150255818efac68ad53fc0ee5a864b *R/perform-query.R
+4b1395fead1d1a1d170d8c2f5438c619 *R/perform-query.R
 e213f8565c66fafe8a25787c3415a3a9 *R/prefix-params.R
 1903313ecc759cd10d56624c410517cb *R/prop-query-type.R
 9ac7abf86c7b283a3d9450f90102c2f3 *R/query-category-members.R
@@ -25,13 +25,13 @@ d41d8cd98f00b204e9800998ecf8427e *R/query-types.R
 e17906ef107420dafc7f08b33c6dd763 *R/sysdata.rda
 b56ff2b193ecba52f9ec7f3b10cca008 *R/utils-pipe.R
 8e911df3691efe13dc597fd0f127a44c *R/utils-tidy-eval.R
-c5e238496386f92265732057a4d2cd07 *R/utils.R
+039eeda294c54ee44e127f832f1d1096 *R/utils.R
 50e272eb9428f8de4283e214d11a9d4a *R/wiki-action-request.R
 50bb83f13a9fbd3ab4fe71d4189b566c *R/wiki-xml.R
 12b2acc9c55bd5b193e7b49d389f9571 *R/wikkitidy-example.R
 6810e46d68e7c7e6cd8757928407c9f8 *R/wikkitidy-package.R
 2915446c8ca69efdf3936684f54805a8 *R/xtools-page-api.R
-89ce2ff0f7850378471c45aa62c70c5c *README.md
+9d3b23da87b5114aa39736317f4858e7 *README.md
 cd09d012d66d38976a4b299b32d978af *inst/extdata/akwiki-20230301-pages-articles-multistream-index.txt.bz2
 e9ddd3c02b7a603b4247e9fbb8b7b605 *inst/extdata/akwiki-20230301-pages-articles-multistream.xml.bz2
 ba2ccd0ce29619911e3606c174f442f9 *man/append_query_result.Rd
