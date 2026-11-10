@@ -26,7 +26,7 @@ parameters}
 \item{api}{The desired REST api:
 "\href{https://www.mediawiki.org/wiki/API:REST_API}{core}",
 "\href{https://www.mediawiki.org/wiki/Wikimedia_REST_API}{wikimedia}",
-"\href{https://wikimedia.org/api/rest_v1/}{wikimedia_org}", or
+"\href{https://meta.wikimedia.org/wiki/Special:RestSandbox}{wikimedia_org}", or
 "\href{https://www.mediawiki.org/wiki/XTools/API}{xtools}"}
 
 \item{response_format}{The expected Content-Type of the response. Currently "html" and
@@ -37,13 +37,16 @@ be parsed using the schema.}
 
 \item{failure_mode}{How to respond if a request fails
 "error", the default: raise an error
-"quiet", silently return NA, and include the http error code in the response}
+"quiet", don't raise an error; instead return a placeholder for each failed
+request, preserving the number of rows. HTTP errors record the status in
+\code{error_code}. Connection failures (no response) record \code{error_code = NA}
+and the condition message in \code{error_message}.}
 }
 \value{
 A list of responses. If \code{response_format} == "json", then the responses
 will be simple R lists. If \code{response_format} == "html", then the responses
 will \code{xml_document} objects. If \code{response_type} is supplied, the response
-will be coerced into a \link[tibble:tbl_df-class]{tibble::tbl_df} or vector using the relevant schema.
+will be coerced into a \link[tibble:tbl_df]{tibble::tbl_df} or vector using the relevant schema.
 If the response is a 'scalar list' (i.e. a list of length == 1), then it is
 silently unlisted, returning a simple list or vector.
 }
